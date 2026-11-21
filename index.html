@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repara no Detalhe | Achados de GTA 6</title>
+<meta name="description" content="Seleção de produtos de GTA 6 por Repara no Detalhe. Links de afiliado.">
+<style>
+:root{--or:#EE5A2B;--or2:#ff7a3d;--bg:#f5f5f5;--card:#fff;--txt:#222;--mut:#757575;--red:#d0011b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Helvetica Neue",Arial,sans-serif}
+header{background:linear-gradient(180deg,var(--or),var(--or2));color:#fff;padding:14px 16px}
+.top{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.3px}
+.badge{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--or);display:grid;place-items:center;font-weight:900;font-size:18px}
+.search{flex:1;min-width:200px}.search input{width:100%;padding:11px 14px;border:0;border-radius:3px;font:inherit}
+.hero{max-width:1100px;margin:16px auto;padding:0 16px}
+.banner{background:#1e1e1e;color:#fff;border-radius:6px;padding:26px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.banner h1{margin:0 0 6px;font-size:26px}.banner h1 span{color:var(--or)}
+.banner p{margin:0;color:#ccc}
+.pill{background:var(--or);color:#fff;padding:8px 14px;border-radius:99px;font-weight:700;font-size:13px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 40px}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut);margin:22px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.card{background:var(--card);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 1px rgba(0,0,0,.08);transition:transform .15s,box-shadow .15s;text-decoration:none;color:inherit;position:relative}
+.card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.img{aspect-ratio:1/1;display:grid;place-items:center;font-size:64px;background:linear-gradient(135deg,#2a2a2a,#555);color:#fff}
+.img img{width:100%;height:100%;object-fit:cover;display:block}
+.tag{position:absolute;top:8px;left:0;background:var(--or);color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:0 3px 3px 0}
+.info{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.name{font-size:13px;line-height:1.35;height:2.7em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.price{color:var(--or);font-size:18px;font-weight:700}.price small{font-size:12px;font-weight:400}
+.sold{color:var(--mut);font-size:11px}
+.btn{margin-top:auto;background:var(--or);color:#fff;text-align:center;padding:9px;border-radius:3px;font-weight:700;font-size:13px}
+.card:hover .btn{background:#d94a1d}
+footer{max-width:1100px;margin:0 auto;padding:18px 16px 40px;color:var(--mut);font-size:12px;line-height:1.5;border-top:1px solid #ddd}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="brand"><div class="badge">R</div>Repara no Detalhe <span style="font-weight:400;opacity:.9">| Loja GTA 6</span></div>
+    <div class="search"><input id="q" placeholder="Buscar nos achados de GTA 6"></div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="banner">
+    <div><h1>Achados de <span>GTA 6</span></h1><p>Os detalhes que ninguém reparou, e os produtos que a gente separou pra você.</p></div>
+    <div class="pill">Compra na Shopee, com segurança</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <h2>Mais populares</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<footer>
+  Esta página é uma vitrine independente do canal Repara no Detalhe, não é a loja oficial da Shopee e não tem vínculo com a Rockstar Games. Os botões levam à Shopee por links de afiliado: se você comprar, o canal pode receber uma comissão, sem custo extra para você. Preços e disponibilidade são da Shopee e podem mudar.
+</footer>
+
+<script>
+const PRODUTOS=[
+ {n:"Camiseta Masculina GTA VI 6 Coqueiros Estampada Gamer Vice City Casual Streetwear",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-8259w-mvhhby7tivbe64.webp",l:"https://s.shopee.com.br/8AXq4VxsPA"},
+ {n:"Camiseta Masculina GTA VI 6 Vice City Estampada Gamer Oversized Streetwear Unissex",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-825ae-mvhhcoun9kp6e8.webp",l:"https://s.shopee.com.br/3LSaJe2oNF"},
+ {n:"Camiseta Masculina GTA VI 6 Coqueiros Estampada Gamer Vice City T-Shirt (cores)",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-82586-mvhhc6vmb4zm8d.webp",l:"https://s.shopee.com.br/9zzUFu85me"},
+ {n:"Camiseta Casual Estampada GTA 6 Game Gamer Tecido Reforçado Leve Macio Unissex",p:31.90,off:"18%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-8258n-mr62k7llb3lz8d.webp",l:"https://s.shopee.com.br/2gCtWR4wfV"},
+ {n:"Kit Jason e Lucia GTA 6: 2 Bonecos Colecionáveis 18 cm em Impressão 3D",p:89.90,off:"18%",e:"🧍",f:"https://down-bs-br.img.susercontent.com/br-11134207-820lb-mvmatvctw64i3b.webp",l:"https://s.shopee.com.br/6fj2HnKRkZ"},
+ {n:"Kit Placas Decorativas Quadros GTA 6 Grand Theft Auto Videogames Gamer",p:25.00,off:"",e:"🖼️",f:"https://down-bs-br.img.susercontent.com/br-11134207-7r98o-madjlbt2tud529.webp",l:"https://s.shopee.com.br/4VeXhot1bJ",v:"48 vendidos"}
+];
+const brl=v=>v.toFixed(2).replace(".",",");
+function render(f=""){
+  const g=document.getElementById("grid");
+  g.innerHTML=PRODUTOS.filter(x=>x.n.toLowerCase().includes(f.toLowerCase())).map(x=>`
+   <a class="card" href="${x.l}" target="_blank" rel="noopener sponsored nofollow">
+     ${x.off?`<span class="tag">-${x.off}</span>`:""}
+     <div class="img"><img src="${x.f}" alt="${x.n}" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('${x.e}'))"></div>
+     <div class="info"><div class="name">${x.n}</div>
+     <div class="price"><small>R$</small> ${brl(x.p)}</div>
+     <div class="sold">${x.v||"Ver na Shopee"}</div>
+     <div class="btn">Comprar na Shopee</div></div>
+   </a>`).join("")||'<p style="color:#757575">Nada encontrado.</p>';
+}
+document.getElementById("q").oninput=e=>render(e.target.value);
+render();
+</script>
+</body>
+</html>
