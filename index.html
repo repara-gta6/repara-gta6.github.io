@@ -6,10 +6,10 @@
 <title>Repara no Detalhe | Achados de GTA 6</title>
 <meta name="description" content="Seleção de produtos de GTA 6 por Repara no Detalhe. Links de afiliado.">
 <style>
-:root{--or:#EE5A2B;--or2:#ff7a3d;--bg:#f5f5f5;--card:#fff;--txt:#222;--mut:#757575;--red:#d0011b}
+:root{--or:#EE5A2B;--or2:#ff7a3d;--bg:#f5f5f5;--card:#fff;--txt:#222;--mut:#757575}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);font-family:"Helvetica Neue",Arial,sans-serif}
-header{background:linear-gradient(180deg,var(--or),var(--or2));color:#fff;padding:14px 16px}
+header{background:linear-gradient(180deg,var(--or),var(--or2));color:#fff;padding:14px 16px;position:sticky;top:0;z-index:5}
 .top{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.3px}
 .badge{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--or);display:grid;place-items:center;font-weight:900;font-size:18px}
@@ -20,11 +20,16 @@ header{background:linear-gradient(180deg,var(--or),var(--or2));color:#fff;paddin
 .banner p{margin:0;color:#ccc}
 .pill{background:var(--or);color:#fff;padding:8px 14px;border-radius:99px;font-weight:700;font-size:13px}
 .wrap{max-width:1100px;margin:0 auto;padding:0 16px 40px}
-h2{font-size:15px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut);margin:22px 0 10px}
+.bar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:6px 0 10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid #ddd;border-radius:99px;padding:7px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+.chip.on{background:var(--or);border-color:var(--or);color:#fff;font-weight:700}
+select{padding:8px 10px;border:1px solid #ddd;border-radius:4px;background:#fff;font:inherit;font-size:13px}
+.count{color:var(--mut);font-size:12px;margin:0 0 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
 .card{background:var(--card);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 1px rgba(0,0,0,.08);transition:transform .15s,box-shadow .15s;text-decoration:none;color:inherit;position:relative}
 .card:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.18)}
-.img{aspect-ratio:1/1;display:grid;place-items:center;font-size:64px;background:linear-gradient(135deg,#2a2a2a,#555);color:#fff}
+.img{aspect-ratio:1/1;background:#e9e9e9}
 .img img{width:100%;height:100%;object-fit:cover;display:block}
 .tag{position:absolute;top:8px;left:0;background:var(--or);color:#fff;font-size:12px;font-weight:700;padding:3px 8px;border-radius:0 3px 3px 0}
 .info{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
@@ -52,7 +57,11 @@ footer{max-width:1100px;margin:0 auto;padding:18px 16px 40px;color:var(--mut);fo
 </div>
 
 <div class="wrap">
-  <h2>Mais populares</h2>
+  <div class="bar">
+    <div class="chips" id="chips"></div>
+    <select id="ord"><option value="">Em destaque</option><option value="p">Menor preço</option><option value="P">Maior preço</option></select>
+  </div>
+  <p class="count" id="count">Carregando...</p>
   <div class="grid" id="grid"></div>
 </div>
 
@@ -61,29 +70,47 @@ footer{max-width:1100px;margin:0 auto;padding:18px 16px 40px;color:var(--mut);fo
 </footer>
 
 <script>
-const PRODUTOS=[
- {n:"Camiseta Masculina GTA VI 6 Coqueiros Estampada Gamer Vice City Casual Streetwear",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-8259w-mvhhby7tivbe64.webp",l:"https://s.shopee.com.br/8AXq4VxsPA"},
- {n:"Camiseta Masculina GTA VI 6 Vice City Estampada Gamer Oversized Streetwear Unissex",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-825ae-mvhhcoun9kp6e8.webp",l:"https://s.shopee.com.br/3LSaJe2oNF"},
- {n:"Camiseta Masculina GTA VI 6 Coqueiros Estampada Gamer Vice City T-Shirt (cores)",p:34.95,off:"50%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-82586-mvhhc6vmb4zm8d.webp",l:"https://s.shopee.com.br/9zzUFu85me"},
- {n:"Camiseta Casual Estampada GTA 6 Game Gamer Tecido Reforçado Leve Macio Unissex",p:31.90,off:"18%",e:"👕",f:"https://down-bs-br.img.susercontent.com/sg-11134201-8258n-mr62k7llb3lz8d.webp",l:"https://s.shopee.com.br/2gCtWR4wfV"},
- {n:"Kit Jason e Lucia GTA 6: 2 Bonecos Colecionáveis 18 cm em Impressão 3D",p:89.90,off:"18%",e:"🧍",f:"https://down-bs-br.img.susercontent.com/br-11134207-820lb-mvmatvctw64i3b.webp",l:"https://s.shopee.com.br/6fj2HnKRkZ"},
- {n:"Kit Placas Decorativas Quadros GTA 6 Grand Theft Auto Videogames Gamer",p:25.00,off:"",e:"🖼️",f:"https://down-bs-br.img.susercontent.com/br-11134207-7r98o-madjlbt2tud529.webp",l:"https://s.shopee.com.br/4VeXhot1bJ",v:"48 vendidos"}
+const IMG="https://down-bs-br.img.susercontent.com/", LNK="https://s.shopee.com.br/";
+const CATS=[
+ ["Camisetas",/camiseta|camisa|t-shirt|moletom|blusa|regata/i],
+ ["Canecas e copos",/caneca|copo|azulejo|garrafa|squeeze/i],
+ ["Luminárias",/lumin|abajur|neon|led/i],
+ ["Quadros e posters",/quadro|poster|placa|plaquinha|lenticular|painel/i],
+ ["Almofadas e casa",/almofada|capa de|manta|tapete|travesseiro/i],
+ ["Mouse pads",/mouse ?pad|deskpad/i],
+ ["Colecionáveis",/boneco|action|figure|colecion|miniatura|funko|estátua|estatua/i],
+ ["Acessórios gamer",/controle|ps5|ps4|xbox|headset|suporte|capa gta|gamer/i],
+ ["Chaveiros e pins",/chaveiro|botton|pins|broche|adesivo|cartela|pingente/i]
 ];
+const catOf=t=>{for(const [c,re] of CATS)if(re.test(t))return c;return "Outros"};
+let P=[],cat="Todos",q="",ord="";
 const brl=v=>v.toFixed(2).replace(".",",");
-function render(f=""){
-  const g=document.getElementById("grid");
-  g.innerHTML=PRODUTOS.filter(x=>x.n.toLowerCase().includes(f.toLowerCase())).map(x=>`
-   <a class="card" href="${x.l}" target="_blank" rel="noopener sponsored nofollow">
-     ${x.off?`<span class="tag">-${x.off}</span>`:""}
-     <div class="img"><img src="${x.f}" alt="${x.n}" loading="lazy" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('${x.e}'))"></div>
-     <div class="info"><div class="name">${x.n}</div>
+const num=s=>parseFloat(String(s).replace(/\./g,"").replace(",","."))||0;
+const esc=s=>s.replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+function render(){
+  const cats=["Todos",...new Set(P.map(x=>x.c))];
+  document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c==cat?"on":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;render()});
+  let L=P.filter(x=>(cat=="Todos"||x.c==cat)&&x.n.toLowerCase().includes(q.toLowerCase()));
+  if(ord=="p")L=[...L].sort((a,b)=>a.p-b.p);if(ord=="P")L=[...L].sort((a,b)=>b.p-a.p);
+  document.getElementById("count").textContent=L.length+" produtos";
+  document.getElementById("grid").innerHTML=L.map(x=>`
+   <a class="card" href="${LNK+x.l}" target="_blank" rel="noopener sponsored nofollow">
+     ${x.d?`<span class="tag">-${x.d}%</span>`:""}
+     <div class="img"><img src="${IMG+x.i}" alt="${esc(x.n)}" loading="lazy" referrerpolicy="no-referrer"></div>
+     <div class="info"><div class="name">${esc(x.n)}</div>
      <div class="price"><small>R$</small> ${brl(x.p)}</div>
-     <div class="sold">${x.v||"Ver na Shopee"}</div>
+     <div class="sold">${esc(x.c)}</div>
      <div class="btn">Comprar na Shopee</div></div>
    </a>`).join("")||'<p style="color:#757575">Nada encontrado.</p>';
 }
-document.getElementById("q").oninput=e=>render(e.target.value);
-render();
+document.getElementById("q").oninput=e=>{q=e.target.value;render()};
+document.getElementById("ord").onchange=e=>{ord=e.target.value;render()};
+fetch("produtos_brutos.txt").then(r=>r.text()).then(t=>{
+  const seen={};
+  P=t.split("\n").map(l=>l.split("~")).filter(a=>a.length>=5&&a[3]&&a[4]&&!seen[a[3]]&&(seen[a[3]]=1)).map(a=>({n:a[0].trim(),p:num(a[1]),d:a[2],i:a[3],l:a[4].trim(),c:catOf(a[0])}));
+  render();
+}).catch(()=>{document.getElementById("count").textContent="Não foi possível carregar os produtos."});
 </script>
 </body>
 </html>
