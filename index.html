@@ -95,7 +95,7 @@ function render(){
   if(ord=="p")L=[...L].sort((a,b)=>a.p-b.p);if(ord=="P")L=[...L].sort((a,b)=>b.p-a.p);
   document.getElementById("count").textContent=L.length+" produtos";
   document.getElementById("grid").innerHTML=L.map(x=>`
-   <a class="card" href="${LNK+x.l}" target="_blank" rel="noopener sponsored nofollow">
+   <a class="card" data-goatcounter-click="shopee-${esc(x.n)}" href="${LNK+x.l}" target="_blank" rel="noopener sponsored nofollow">
      ${x.d?`<span class="tag">-${x.d}%</span>`:""}
      <div class="img"><img src="${IMG+x.i}" alt="${esc(x.n)}" loading="lazy" referrerpolicy="no-referrer"></div>
      <div class="info"><div class="name">${esc(x.n)}</div>
